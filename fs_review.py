@@ -16,9 +16,14 @@ def banner():
 	print "\t\t -- https://www.twitter.com/@_x90__ --\n"
 
 
+def usage():
+
+	print "%s -c [path to freeswitch config folder]\n" % sys.argv[0]
+	exit()
+
 def analyse_config(c_dir):
 
-	for dpath, dnames, fnames in os.walk("."):
+	for dpath, dnames, fnames in os.walk(c_dir):
 		for i, fname in enumerate([os.path.join(dpath, fname) for fname in fnames]):
 			if fname.endswith(".xml") and "lang" not in fname and "example.xml" not in fname:
 				files.append(fname)
@@ -92,7 +97,9 @@ if __name__ == "__main__":
 
 	banner()
 
-	if sys.argv.index("-c"):
-		fs_folder = sys.argv[sys.argv.index("-c")+1]
+	if "-c" not in sys.argv:
+		usage()
+	
+	fs_folder = sys.argv[sys.argv.index("-c")+1]
 
 	analyse_config(fs_folder)
