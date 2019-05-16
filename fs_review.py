@@ -13,7 +13,7 @@ def banner():
 	print ""
 	print "    A simple FreeSWITCH security review script. Review the output carfully."
 	print ""
-	print "\t\t -- https://www.twitter.com/@_x90__ --\n"
+	print "\t\t -- https://www.twitter.com/@_g0dmode --\n"
 
 
 def usage():
